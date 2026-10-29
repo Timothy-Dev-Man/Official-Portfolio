@@ -1,0 +1,155 @@
+#MainBlurr {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: #050505;
+    pointer-events: none;
+}
+
+.main_blurr_div {
+    position: absolute;
+    width: 40vw;
+    height: 40vw;
+    min-width: 250px;
+    min-height: 250px;
+    max-width: 650px;
+    max-height: 650px;
+    border-radius: 50%;
+
+    filter: blur(100px);
+    opacity: 0.55;
+    will-change: transform, filter;
+
+    animation:
+        blurr_color 18s linear infinite,
+        blurr_pulse 12s ease-in-out infinite alternate;
+}
+
+/* Blob 1 */
+.main_blurr_div:nth-child(1) {
+    top: 5%;
+    left: 5%;
+
+    background: radial-gradient(circle,
+            #D74A49 0%,
+            rgba(215, 74, 73, 0.5) 35%,
+            transparent 70%);
+
+    animation-name: blurr_one, blurr_color;
+    animation-duration: 24s, 18s;
+    animation-timing-function: ease-in-out, linear;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, normal;
+}
+
+/* Blob 2 */
+.main_blurr_div:nth-child(2) {
+    top: 35%;
+    left: 55%;
+
+    background: radial-gradient(circle,
+            #B08D57 0%,
+            rgba(176, 141, 87, 0.5) 35%,
+            transparent 70%);
+
+    animation-name: blurr_two, blurr_color;
+    animation-duration: 30s, 22s;
+    animation-timing-function: ease-in-out, linear;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, normal;
+}
+
+/* Blob 3 */
+.main_blurr_div:nth-child(3) {
+    top: 60%;
+    left: 15%;
+
+    background: radial-gradient(circle,
+            #7545C8 0%,
+            rgba(117, 69, 200, 0.5) 35%,
+            transparent 70%);
+
+    animation-name: blurr_three, blurr_color;
+    animation-duration: 27s, 20s;
+    animation-timing-function: ease-in-out, linear;
+    animation-iteration-count: infinite, infinite;
+    animation-direction: alternate, normal;
+}
+
+/* Independent movement paths */
+@keyframes blurr_one {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    35% {
+        transform: translate(45vw, 20vh) scale(1.2);
+    }
+
+    70% {
+        transform: translate(20vw, 55vh) scale(0.85);
+    }
+
+    100% {
+        transform: translate(60vw, 10vh) scale(1.1);
+    }
+}
+
+@keyframes blurr_two {
+    0% {
+        transform: translate(0, 0) scale(1.1);
+    }
+
+    30% {
+        transform: translate(-35vw, -20vh) scale(0.9);
+    }
+
+    65% {
+        transform: translate(-10vw, 35vh) scale(1.25);
+    }
+
+    100% {
+        transform: translate(-50vw, -10vh) scale(1);
+    }
+}
+
+@keyframes blurr_three {
+    0% {
+        transform: translate(0, 0) scale(0.9);
+    }
+
+    40% {
+        transform: translate(35vw, -45vh) scale(1.2);
+    }
+
+    75% {
+        transform: translate(55vw, -15vh) scale(1);
+    }
+
+    100% {
+        transform: translate(15vw, -55vh) scale(1.15);
+    }
+}
+
+/* Continuously cycle through different hues */
+@keyframes blurr_color {
+    0% {
+        filter: blur(100px) hue-rotate(0deg);
+    }
+
+    50% {
+        filter: blur(120px) hue-rotate(180deg);
+    }
+
+    100% {
+        filter: blur(100px) hue-rotate(360deg);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .main_blurr_div {
+        animation: none;
+    }
+}

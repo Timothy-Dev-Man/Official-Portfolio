@@ -1,83 +1,645 @@
+/* =========================
+   Contact section
+   Mobile-first
+========================= */
+
 .contact-outer-container {
-    background: #20272F;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    position: absolute;
-    z-index: 10000;
+    position: relative;
+    isolation: isolate;
+
     width: 100%;
-    flex-direction: column;
+    overflow: hidden;
+
+    color: #F5F2ED;
+    background: #050506;
 }
 
+.contact-main {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 90rem;
+    box-sizing: border-box;
+
+    margin-inline: auto;
+    padding: 3.5rem 5%;
+}
+
+
+/* Background accents */
+
+.contact-outer-container::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    content: "";
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 0% 20%,
+            rgb(215 74 73 / 7%),
+            transparent 45%),
+        radial-gradient(ellipse at 100% 75%,
+            rgb(176 141 87 / 5%),
+            transparent 45%);
+}
+
+
+/* Section heading */
+
+.contact-header {
+    max-width: 43rem;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+}
+
+.contact-eyebrow {
+    margin: 0 0 0.8rem;
+
+    color: #B08D57;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+.contact-title {
+    margin: 0;
+
+    color: #F5F2ED;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 750;
+    line-height: 1.12;
+    letter-spacing: -0.05em;
+}
+
+.contact-title span {
+    color: #D74A49;
+}
+
+.contact-description {
+    max-width: 34rem;
+    margin: 1rem auto 0;
+
+    color: #A5A5AA;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+/* =========================
+   Main layout
+========================= */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    gap: 1.25rem;
+
+    width: 100%;
+}
+
+
+/* Shared panel design */
+
+.git-contributions,
 .contact-content {
-    width: 80%;
-    max-width: 750px;
+    position: relative;
+    min-width: 0;
+    box-sizing: border-box;
+
+    padding: 1.25rem;
+    overflow: hidden;
+
+    border: 1px solid rgb(215 74 73 / 17%);
+    border-radius: 1.15rem;
+
+    background: linear-gradient(145deg,
+            rgb(23 23 25 / 97%),
+            rgb(8 8 9 / 98%));
+
+    box-shadow:
+        0 12px 35px rgb(0 0 0 / 20%),
+        inset 0 1px 0 rgb(255 255 255 / 3%);
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    background: radial-gradient(circle at top right, #180808 0, #3B1010 100%);
-    padding: 25px;
-    border-radius: 50px;
-    margin-bottom: 5%;
+    gap: 1.15rem;
+
+    width: 100%;
+    min-width: 0;
 }
 
-.contact-form h2,
-p {
-    color: #dfdede;
+
+/* Top accent */
+
+.git-contributions::before,
+.contact-content::before {
+    position: absolute;
+    top: 0;
+    left: 1.25rem;
+    right: 1.25rem;
+
+    height: 2px;
+
+    content: "";
+
+    background: linear-gradient(90deg,
+            transparent,
+            #D74A49,
+            #B08D57,
+            transparent);
+
+    opacity: 0.75;
 }
 
-.contact-form p {
-    opacity: 0.8;
+
+/* Panel heading */
+
+.contact-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    margin-bottom: 1rem;
 }
 
-.label {
-    color: #8D9197;
-    opacity: 0.8;
+.contact-panel-icon {
+    display: grid;
+    flex-shrink: 0;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    place-items: center;
+
+    border: 1px solid rgb(215 74 73 / 25%);
+    border-radius: 0.8rem;
+
+    color: #D74A49;
+    background: rgb(215 74 73 / 8%);
+
+    font-size: 1.1rem;
 }
+
+.contact-panel-eyebrow {
+    margin: 0 0 0.3rem;
+
+    color: #B08D57;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.contact-panel-heading h3,
+.contact-form__header h3 {
+    margin: 0;
+
+    color: #F5F2ED;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+}
+
+.contact-panel-description {
+    margin: 0;
+
+    color: #A5A5AA;
+    font-size: 0.85rem;
+    line-height: 1.75;
+}
+
+/* =========================
+   GitHub Contributions Panel
+========================= */
+
+.git-contributions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+
+/* Panel heading */
+
+.contact-panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+
+    margin: 0;
+}
+
+.contact-panel-icon {
+    display: grid;
+    flex-shrink: 0;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    place-items: center;
+
+    border: 1px solid rgb(215 74 73 / 25%);
+    border-radius: 0.8rem;
+
+    color: #D74A49;
+    background: rgb(215 74 73 / 8%);
+
+    font-size: 1.1rem;
+}
+
+.contact-panel-heading h3 {
+    margin: 0;
+
+    color: #F5F2ED;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.035em;
+}
+
+.contact-panel-eyebrow {
+    margin: 0 0 0.3rem;
+
+    color: #B08D57;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.contact-panel-description {
+    margin: 0;
+
+    color: #A5A5AA;
+    font-size: 0.85rem;
+    line-height: 1.75;
+}
+
+
+/* Calendar container */
+
+.github-section {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 0.25rem;
+    padding: 1rem 0.75rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    border: 1px solid rgb(255 255 255 / 7%);
+    border-radius: 0.8rem;
+
+    background: rgb(0 0 0 / 25%);
+
+    scrollbar-width: thin;
+    scrollbar-color: rgb(176 141 87 / 40%) transparent;
+}
+
+
+/* Keep the calendar from being compressed */
+
+.github-section>div:first-child {
+    width: max-content;
+    min-width: 100%;
+    margin-inline: auto;
+}
+
+
+/* Preserve the calendar's natural width */
+
+.github-section svg {
+    display: block;
+    max-width: none;
+    height: auto;
+}
+
+
+/* Calendar text */
+
+.github-section text {
+    fill: #A5A5AA;
+}
+
+
+/* Contribution total */
+
+.github-total {
+    margin: 1rem 0 0;
+
+    color: #A5A5AA;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.github-total span {
+    color: #D74A49;
+    font-weight: 750;
+}
+
+
+/* Scrollbar */
+
+.github-section::-webkit-scrollbar {
+    height: 5px;
+}
+
+.github-section::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: rgb(176 141 87 / 40%);
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (min-width: 48rem) {
+    .git-contributions {
+        gap: 1.25rem;
+    }
+
+    .contact-panel-heading h3 {
+        font-size: 1.5rem;
+    }
+
+    .github-section {
+        padding: 1.25rem 1rem;
+    }
+}
+
+
+/* =========================
+   Desktop
+========================= */
+
+@media (min-width: 75rem) {
+    .git-contributions {
+        padding: 2rem;
+    }
+
+    .github-section {
+        padding: 1.25rem 0.75rem;
+    }
+}
+
+/* =========================
+   Contact form
+========================= */
+
+.contact-form__header {
+    margin-bottom: 0.25rem;
+}
+
+.contact-form__header h3 {
+    font-size: 1.65rem;
+}
+
+.contact-form__header>p:last-child {
+    margin: 0.65rem 0 0;
+
+    color: #A5A5AA;
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+
+/* Form fields */
+
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    min-width: 0;
+}
+
+.contact-label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+
+    color: #B08D57;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+}
+
+.contact-label svg {
+    flex-shrink: 0;
+
+    color: #D74A49;
+    font-size: 0.9rem;
+}
+
+
+/* Inputs */
 
 .contact-input,
 .contact-textarea {
-    padding: 0.8rem 1rem;
-    border: 1px solid #444;
-    border-radius: 8px;
-    background: rgb(22.35%, 24.31%, 29.41%, 0.5);
-    color: white;
-    font-size: 1rem;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    padding: 0.85rem 0.95rem;
+
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 0.65rem;
+    outline: none;
+
+    color: #F5F2ED;
+    background: rgb(0 0 0 / 30%);
+
+    font: inherit;
+    font-size: 0.875rem;
+    line-height: 1.6;
+
+    transition:
+        border-color 200ms ease,
+        box-shadow 200ms ease,
+        background 200ms ease;
 }
 
-input::placeholder,
-textarea::placeholder {
-    opacity: 0.4;
+.contact-input {
+    min-height: 3rem;
 }
 
 .contact-textarea {
-    min-height: 150px;
+    min-height: 8rem;
     resize: vertical;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    color: #77747A;
+}
+
+.contact-input:hover,
+.contact-textarea:hover {
+    border-color: rgb(215 74 73 / 30%);
 }
 
 .contact-input:focus,
 .contact-textarea:focus {
-    outline: none;
-    border-color: #d74a49;
+    border-color: #D74A49;
+    background: rgb(0 0 0 / 45%);
+
+    box-shadow: 0 0 0 3px rgb(215 74 73 / 9%);
 }
+
+
+/* Submit button */
 
 .contact-button {
-    padding: 0.9rem;
-    border: 1px #741818 solid;
-    border-radius: 50px;
-    background: #000000;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background 0.2s ease;
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 0.7rem;
+
+    width: 100%;
+    min-height: 3.2rem;
+    margin-top: 0.25rem;
+    padding: 0.85rem 1rem;
+
+    border: 1px solid rgb(215 74 73 / 45%);
+    border-radius: 0.7rem;
+
+    color: #FFFFFF;
+    background: linear-gradient(110deg,
+            #B93838,
+            #D74A49);
+
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgb(215 74 73 / 12%);
+
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease,
+        filter 200ms ease;
 }
 
-.contact-button:hover {
-    background: #c03e3d;
+.contact-button svg {
+    font-size: 1rem;
+}
+
+.contact-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+
+    box-shadow: 0 10px 28px rgb(215 74 73 / 18%);
+}
+
+.contact-button:focus-visible {
+    outline: 2px solid #B08D57;
+    outline-offset: 4px;
+}
+
+.contact-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+
+/* Form status */
+
+.contact-status {
+    min-height: 1.25rem;
+    margin: -0.3rem 0 0;
+
+    font-size: 0.8rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.contact-status--success {
+    color: #8CCF9A;
+}
+
+.contact-status--error {
+    color: #F07875;
+}
+
+/* =========================
+   Tablet: 768px+
+========================= */
+
+@media (min-width: 48rem) {
+    .contact-main {
+        padding: 5rem 2rem;
+    }
+
+    .contact-header {
+        margin-bottom: 3rem;
+    }
+
+    .contact-description {
+        font-size: 0.95rem;
+    }
+
+    .git-contributions,
+    .contact-content {
+        padding: 1.75rem;
+    }
+
+    .contact-panel-heading h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-form__header h3 {
+        font-size: 1.8rem;
+    }
+
+    .github-section {
+        padding: 1rem;
+    }
+
+    .contact-layout {
+        gap: 1.5rem;
+    }
+}
+
+
+/* =========================
+   Desktop: 1200px+
+========================= */
+
+@media (min-width: 75rem) {
+    .contact-main {
+        max-width: 85rem;
+        padding: 6rem 3rem;
+    }
+
+    .contact-layout {
+        grid-template-columns:
+            minmax(0, 1.05fr) minmax(0, 0.95fr);
+
+        align-items: start;
+        gap: 2rem;
+    }
+
+    .git-contributions,
+    .contact-content {
+        padding: 2rem;
+    }
+
+    .contact-title {
+        font-size: clamp(3rem, 4vw, 3.75rem);
+    }
 }

@@ -1,0 +1,27 @@
+.buttons {
+    width: 120px;
+    height: 35px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: medium;
+    box-shadow: 0 0 18px rgba(215, 74, 73, 0.60);
+
+}
+
+.work-button:hover {
+    box-shadow: 0 0 18px rgba(215, 74, 73, 0.60);
+    cursor: pointer;
+}
+
+.work-button {
+    background-color: #D74A49;
+}
+
+.resume-button {
+    background-color: #000000;
+    color: #B08D57;
+    border: 1px solid #B08D57;
+    box-shadow: 0 0 18px rgba(176, 141, 87, 0.60);
+    font-weight: 600;
+}

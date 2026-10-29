@@ -1,21 +1,17 @@
-import { ProjectCard, SmallFloatingAstronaut } from "../Content/Project-card.jsx";
-import { useIsVisible } from "../helper.js";
-import smallAstronaut from "../assets/small_astronaut_floating.png"
+import { useRef } from "react";
+import { ProjectCard } from "../Cards/Project-card.jsx";
+import { useIsVisible } from "../../helper.js";
 
-function Projects({ ref }) {
-    const targetVisible = useIsVisible(ref);
+function Projects() {
+    const ref = useRef(null);
+    const isVisible = useIsVisible(ref);
 
     return (
         <section
             id="projects"
-            className={`projects-outer-container ${targetVisible ? "visible" : ""}`}
+            className={`projects-outer-container ${isVisible ? "visible" : ""}`}
             ref={ref}
         >
-            <div id="stars"></div>
-            <div id="stars2"></div>
-            <div id="stars3"></div>
-
-
             <section
                 id="projects-content"
                 className="projects-content"
@@ -23,10 +19,9 @@ function Projects({ ref }) {
                 <ProjectCard
                     url="https://github.com/shwifty-man/Sl_Quest_Tracker"
                     string="left"
-                    name="QuestTracker"
+                    name="QuestFrontier"
                     description="QuestTracker is a mobile application for managing goals, tracking progress, and enforcing penalties to help users stay accountable and motivated."
                 />
-                <SmallFloatingAstronaut />
 
                 <ProjectCard
                     url="https://github.com/shwifty-man/FeelClear-frontend"

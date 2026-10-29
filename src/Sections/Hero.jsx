@@ -1,26 +1,42 @@
+import { A_button } from "../Components/Buttons/A_button.jsx";
+import { Button } from "../Components/Buttons/Button.jsx";
+import { FaArrowDownLong } from "react-icons/fa6";
 
-import spaceMan from '../assets/astronaut_floating.svg'
-
-function Hero({ targetElement }) {
+function Hero() {
   return (
-    <>
-      <div className="content">
-        <h1 id="Name">Timothy Williams</h1>
-        <h2>Full-Stack Engineer</h2>
-        <p>Passionate about building responsive, efficient, and user-friendly web applications.</p>
-        <div className="button-container">
-          <button onClick={() => { targetElement.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" }); }} className="buttons work-button">View my work</button>
-          <a href="/Timothy_Williams_Full-Stack_Engineer_Resume.pdf" target='_blank'>
-            <button className="buttons resume-button">Resume</button>
-          </a>
-        </div>
+    <div className="content">
+      <h1>
+        Full Stack{" "}
+        <span className="hero-title-accent">
+          Engineer
+        </span>
+      </h1>
+
+      <p className="hero-description">
+        Passionate about building responsive, efficient,
+        and user-friendly web applications.
+      </p>
+
+      <div className="button-container">
+        <Button text="View my work" onClick={() =>
+          document.getElementById("portfolio")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+        } />
+
+        <A_button
+          text="Resume"
+          url="/Timothy_Williams_Full-Stack_Engineer_Resume.pdf"
+        />
       </div>
 
-      <img className='space-man-svg' src={spaceMan} alt="space man" />
-
-
-      <div id="skills-scroll"></div>
-    </>
+      <FaArrowDownLong
+        id="arrow-down-icon"
+        aria-hidden="true"
+        color='#D74A49'
+      />
+    </div>
   );
 }
 

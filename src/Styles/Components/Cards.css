@@ -1,0 +1,289 @@
+/* Card wrapper */
+
+.stat-card-wrapper {
+    position: relative;
+    height: 100%;
+    isolation: isolate;
+}
+
+
+/* Main card */
+
+.stat-card {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 14rem;
+    padding: clamp(1.25rem, 3vw, 1.6rem);
+
+    overflow: hidden;
+
+    border: 1px solid rgb(215 74 73 / 22%);
+    border-radius: 1.25rem;
+
+    background: linear-gradient(
+        145deg,
+        rgb(22 22 24 / 96%),
+        rgb(8 8 9 / 98%)
+    );
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 10px 30px rgb(0 0 0 / 25%),
+        inset 0 1px 0 rgb(255 255 255 / 4%);
+
+    transition:
+        transform 300ms ease,
+        border-color 300ms ease,
+        box-shadow 300ms ease;
+}
+
+
+/* Top accent line */
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #D74A49 25%,
+        #B08D57 75%,
+        transparent
+    );
+
+    opacity: 0.8;
+}
+
+
+/* Hover effects */
+
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgb(215 74 73 / 55%);
+
+    box-shadow:
+        0 20px 45px rgb(0 0 0 / 40%),
+        0 0 25px rgb(215 74 73 / 8%),
+        inset 0 1px 0 rgb(255 255 255 / 6%);
+}
+
+
+/* Gradient background */
+
+.stat-card__gradient {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgb(215 74 73 / 28%),
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgb(176 141 87 / 12%),
+            transparent 45%
+        );
+
+    opacity: 0.45;
+
+    transition: opacity 300ms ease;
+}
+
+.stat-card:hover .stat-card__gradient {
+    opacity: 0.9;
+}
+
+
+/* Keep card content above the gradient */
+
+.stat-card > :not(.stat-card__gradient) {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* Header */
+
+.stat-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* Icon container */
+
+.stat-card__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-shrink: 0;
+
+    border: 1px solid rgb(215 74 73 / 25%);
+    border-radius: 1rem;
+
+    background: linear-gradient(
+        145deg,
+        rgb(215 74 73 / 16%),
+        rgb(215 74 73 / 5%)
+    );
+
+    box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 5%),
+        0 4px 12px rgb(0 0 0 / 15%);
+
+    transition:
+        transform 300ms ease,
+        background 300ms ease,
+        border-color 300ms ease;
+}
+
+.stat-card:hover .stat-card__icon-wrapper {
+    transform: translateY(-2px) rotate(-4deg);
+
+    border-color: rgb(215 74 73 / 50%);
+
+    background: rgb(215 74 73 / 22%);
+}
+
+
+/* Icon */
+
+.stat-card__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+
+    color: #D74A49;
+}
+
+
+/* Statistic number */
+
+.stat-card__count {
+    margin: 0 0 0.65rem;
+
+    color: #F5F2ED;
+
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 750;
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* Content title */
+
+.stat-card__title {
+    margin: 0 0 0.5rem;
+
+    color: #D74A49;
+
+    font-size: 0.8rem;
+    font-weight: 650;
+    line-height: 1.4;
+
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+}
+
+
+/* Footer */
+
+.stat-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+
+    border-top: 1px solid rgb(255 255 255 / 8%);
+}
+
+
+/* Description */
+
+.stat-card__description {
+    color: #A5A5AA;
+
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+
+/* Arrow */
+
+.stat-card__arrow {
+    flex-shrink: 0;
+
+    width: 1rem;
+    height: 1rem;
+
+    color: #B08D57;
+
+    transition:
+        transform 250ms ease,
+        color 250ms ease;
+}
+
+.stat-card:hover .stat-card__arrow {
+    color: #D6B77D;
+    transform: translateX(4px);
+}
+
+
+/* Keyboard accessibility */
+
+.stat-card:focus-within {
+    outline: 2px solid #D74A49;
+    outline-offset: 4px;
+}
+
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card,
+    .stat-card__gradient,
+    .stat-card__icon-wrapper,
+    .stat-card__arrow {
+        transition: none;
+    }
+
+    .stat-card:hover,
+    .stat-card:hover .stat-card__icon-wrapper,
+    .stat-card:hover .stat-card__arrow {
+        transform: none;
+    }
+}

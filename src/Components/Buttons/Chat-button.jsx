@@ -1,7 +1,7 @@
-import aiChatIcon from "../assets/chat-head-icon.png";
+import aiChatIcon from "../../assets/chat-head-icon.png";
 import { useState, lazy, Suspense, useEffect } from "react";
 
-const ChatView = lazy(() => import("./Chat-view.jsx"));
+const ChatView = lazy(() => import("../Chat-view.jsx"));
 
 function ChatButton({ onChatStateChange, showText = true, fixed = true }) {
     const [toggle, setToggle] = useState(false);

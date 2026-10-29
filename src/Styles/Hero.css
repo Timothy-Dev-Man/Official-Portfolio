@@ -1,180 +1,232 @@
-.hero-outer-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  justify-self: center;
-  width: 100%;
-  height: 100vh;
-}
+/* =========================
+   Hero
+   Mobile-first
+========================= */
 
 .content {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 85svh;
+  box-sizing: border-box;
+
+  gap: 1.25rem;
+  padding: 5rem 1.25rem 4rem;
+
+  color: #F5F2ED;
   text-align: center;
-  color: white;
-  align-content: center;
 }
 
-.content p {
-  color: #e2e8f0;
+
+/* Subtle ambient glow */
+
+.content::before {
+  position: absolute;
+  z-index: -1;
+
+  top: 15%;
+  left: 50%;
+
+  width: min(100%, 38rem);
+  aspect-ratio: 1;
+
+  content: "";
+  pointer-events: none;
+
+  background: radial-gradient(circle,
+      rgb(215 74 73 / 8%) 0%,
+      rgb(176 141 87 / 4%) 35%,
+      transparent 70%);
+
+  transform: translateX(-50%);
 }
+
+/* Main heading */
 
 .content h1 {
-  color: #D74A49;
-  font-size: 30px;
+  max-width: 12ch;
+  margin: 0;
+
+  color: #F5F2ED;
+
+  font-size: clamp(2.6rem, 10vw, 4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.065em;
+
+  overflow-wrap: anywhere;
 }
 
-.content h2 {
-  color: #B08D57;
-  font-size: 20px;
+
+/* Animated red and gold text */
+
+.hero-title-accent,
+.title-accent {
+  display: inline-block;
+
+  background: linear-gradient(110deg,
+      #D74A49 0%,
+      #F07875 35%,
+      #B08D57 65%,
+      #D74A49 100%);
+
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: hero-gradient-move 3s ease-in-out infinite alternate;
 }
 
-/* --- IMAGE STYLES ---  */
-.space-man-svg {
-  width: 300px;
-  height: 300px;
-  transform: rotate(10deg);
-  animation: float 2s ease-in-out infinite;
+@keyframes hero-gradient-move {
+  to {
+    background-position: 100% 50%;
+  }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
+
+/* Description */
+
+.hero-description {
+  width: 100%;
+  max-width: 35rem;
+  margin: 0;
+
+  color: #AAA7A4;
+
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+
+/* =========================
+   Buttons
+========================= */
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0.5rem;
+}
+
+.button-container>* {
+  max-width: 100%;
+}
+
+#arrow-down-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-top: auto;
+
+  animation: hero-arrow-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-arrow-bounce {
+
+  0%,
+  100% {
+    transform: translateY(-3px);
   }
 
   50% {
-    transform: translateY(-5px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* --- BUTTON STYLES ---  */
-.button-container {
-  justify-content: center;
-  width: 100%;
-  display: flex;
-  gap: 10px
-}
-
-.buttons {
-  width: 110px;
-  height: 25px;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: smaller;
-}
-
-.buttons:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 18px rgba(215, 74, 73, 0.60);
-  cursor: pointer;
-}
-
-.work-button {
-  background-color: #D74A49;
-}
-
-.resume-button {
-  background-color: #2F3A40;
-}
-
-
-#skills-scroll {
-  position: absolute;
-  bottom: -10%;
-}
-
-@media (min-width: 425px) {
-  #skills-scroll {
-    position: absolute;
-    bottom: -20%;
+    transform: translateY(4px);
   }
 }
 
 
-@media (min-width: 768px) {
+/* =========================
+   Tablet: 768px+
+========================= */
 
-  .space-man-svg {
-    width: 400px;
-    height: 400px;
+@media (min-width: 48rem) {
+  .content {
+    min-height: 85svh;
+    gap: 1.5rem;
+    padding: 5rem 2rem;
   }
 
   .content h1 {
-    font-size: 40px;
+    max-width: 14ch;
+    font-size: clamp(3.5rem, 7vw, 5rem);
   }
 
-  #skills-scroll {
-    position: absolute;
-    bottom: -25%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-outer-container {
-    flex-wrap: nowrap;
-    padding-top: 20%;
-  }
-
-  .content,
-  p {
-    text-align: left;
-    align-self: start;
-    max-width: 60ch
+  .hero-description {
+    font-size: 1rem;
   }
 
   .button-container {
-    justify-content: left;
-  }
-
-  .content h1 {
-    font-size: 55px;
-  }
-
-  .space-man-svg {
-    width: 400px;
-    height: 500px;
-  }
-
-  #skills-scroll {
-    position: absolute;
-    bottom: -40%;
-  }
-
-}
-
-@media (min-width: 1440px) {
-  .hero-outer-container {
-    flex-wrap: nowrap;
-    padding-top: 15%;
-  }
-
-  .buttons {
-    width: 150px;
-    height: 30px;
-    font-size: medium;
-  }
-
-  .content h1 {
-    font-size: 65px;
-    width: 100%;
-  }
-
-  #skills-scroll {
-    position: absolute;
-    bottom: -25%;
+    gap: 1rem;
+    margin-top: 0.75rem;
   }
 }
 
-@media (min-width: 1750px) {
-  .hero-outer-container {
-    flex-wrap: nowrap;
-    padding-top: 10%;
+
+/* =========================
+   Desktop: 1024px+
+========================= */
+@media (min-width: 64rem) {
+  .content {
+    align-items: center;
+    text-align: center;
   }
 
-  #skills-scroll {
-    position: absolute;
-    bottom: -30%;
+  .hero-eyebrow {
+    justify-content: center;
+  }
+
+  .button-container {
+    justify-content: center;
+  }
+
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-scroll-link {
+    align-self: center;
+  }
+}
+
+
+/* =========================
+   Wide desktop: 1440px+
+========================= */
+
+@media (min-width: 90rem) {
+  .content h1 {
+    font-size: 5.75rem;
+  }
+
+  .hero-description {
+    max-width: 38rem;
+  }
+}
+
+
+/* =========================
+   Reduced motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-title-accent,
+  #arrow-down-icon {
+    animation: none;
   }
 }

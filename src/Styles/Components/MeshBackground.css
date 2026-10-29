@@ -1,0 +1,229 @@
+/* =========================
+   Mesh Background
+   Mobile-first defaults
+========================= */
+
+.mesh-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+
+    opacity: 0.7;
+}
+
+
+/* Ambient blue glow */
+
+.mesh-background__glow {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.mesh-background__glow--blue {
+    background: radial-gradient(ellipse at 45% 45%,
+            rgb(0 105 145 / 12%) 0%,
+            rgb(0 65 95 / 5%) 40%,
+            transparent 72%);
+
+    opacity: 0.65;
+}
+
+
+/* Ambient red glow */
+
+.mesh-background__glow--red {
+    background:
+        radial-gradient(ellipse at 100% 50%,
+            rgb(215 74 73 / 11%) 0%,
+            transparent 60%),
+        radial-gradient(ellipse at 0% 85%,
+            rgb(215 74 73 / 7%) 0%,
+            transparent 55%);
+
+    opacity: 0.55;
+}
+
+
+/* Fine grid lines */
+
+.mesh-background__grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(to right,
+            rgb(215 74 73 / 11%) 1px,
+            transparent 1px),
+        linear-gradient(to bottom,
+            rgb(215 74 73 / 11%) 1px,
+            transparent 1px);
+
+    background-size: 32px 32px;
+    background-position: center center;
+
+    opacity: 0.28;
+
+    -webkit-mask-image: linear-gradient(to bottom,
+            transparent,
+            #000 8%,
+            #000 92%,
+            transparent);
+
+    mask-image: linear-gradient(to bottom,
+            transparent,
+            #000 8%,
+            #000 92%,
+            transparent);
+}
+
+
+/* Tiny points at grid intersections */
+
+.mesh-background__nodes {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle,
+            rgb(215 74 73 / 75%) 1px,
+            transparent 1.5px),
+        radial-gradient(circle,
+            rgb(56 189 248 / 55%) 1px,
+            transparent 1.5px);
+
+    background-size: 32px 32px, 64px 64px;
+    background-position: center center, 16px 16px;
+
+    opacity: 0.22;
+}
+
+
+/* Faint technical crosshairs */
+
+.mesh-background__crosses {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgb(215 74 73 / 55%),
+            rgb(215 74 73 / 55%)),
+        linear-gradient(rgb(215 74 73 / 55%),
+            rgb(215 74 73 / 55%)),
+        linear-gradient(rgb(56 189 248 / 45%),
+            rgb(56 189 248 / 45%)),
+        linear-gradient(rgb(56 189 248 / 45%),
+            rgb(56 189 248 / 45%));
+
+    background-repeat: no-repeat;
+
+    background-size:
+        9px 1px,
+        1px 9px,
+        7px 1px,
+        1px 7px;
+
+    background-position:
+        18% 24%,
+        18% 24%,
+        78% 67%,
+        78% 67%;
+
+    opacity: 0.25;
+}
+
+
+/* Sparse glowing square nodes */
+
+.mesh-background__squares {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(#D74A49, #D74A49),
+        linear-gradient(#D74A49, #D74A49),
+        linear-gradient(#D74A49, #D74A49),
+        linear-gradient(#B08D57, #B08D57),
+        linear-gradient(#D74A49, #D74A49),
+        linear-gradient(#38BDF8, #38BDF8);
+
+    background-repeat: no-repeat;
+
+    background-size:
+        3px 3px,
+        2px 2px,
+        3px 3px,
+        2px 2px,
+        2px 2px,
+        2px 2px;
+
+    background-position:
+        13% 20%,
+        31% 72%,
+        57% 15%,
+        69% 44%,
+        86% 76%,
+        92% 28%;
+
+    opacity: 0.3;
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (min-width: 48rem) {
+    .mesh-background__grid {
+        background-size: 40px 40px;
+    }
+
+    .mesh-background__nodes {
+        background-size: 40px 40px, 80px 80px;
+        background-position: center center, 20px 20px;
+    }
+
+    .mesh-background__glow--blue {
+        opacity: 0.75;
+    }
+}
+
+
+/* =========================
+   Desktop
+========================= */
+
+@media (min-width: 64rem) {
+    .mesh-background__grid {
+        background-size: 44px 44px;
+        opacity: 0.32;
+    }
+
+    .mesh-background__nodes {
+        background-size: 44px 44px, 88px 88px;
+        background-position: center center, 22px 22px;
+    }
+
+    .mesh-background__glow--red {
+        opacity: 0.65;
+    }
+}
+
+
+/* =========================
+   Reduced motion
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .mesh-background,
+    .mesh-background * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
