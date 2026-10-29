@@ -46,7 +46,7 @@ class GitHubErrorBoundary extends Component {
 
                     <a
                         className="github-calendar-error__link"
-                        href="https://github.com/shwifty-man"
+                        href="https://github.com/Timothy-Dev-Man"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -69,7 +69,7 @@ function GithubSection() {
             <div className="github-section__scroll">
                 <GitHubErrorBoundary key={currentYear}>
                     <GitHubCalendar
-                        username="shwifty-man"
+                        username="Timothy-Dev-Man"
                         year={currentYear}
                         throwOnError
                         theme={{

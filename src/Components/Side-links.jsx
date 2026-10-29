@@ -76,7 +76,7 @@ export default function SideLinks({ setActiveTab }) {
                 </nav>
 
                 <div className="side-icons-wrapper">
-                    <a href="https://github.com/shwifty-man" target="_blank" rel="noreferrer" className="side-icon" title="GitHub">
+                    <a href="https://github.com/Timothy-Dev-Man" target="_blank" rel="noreferrer" className="side-icon" title="GitHub">
                         <FaGithub size={20} />
                         <span>GitHub</span>
                     </a>
