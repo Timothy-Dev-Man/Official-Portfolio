@@ -1,18 +1,30 @@
-# React + Vite
+# Timothy Williams | Full-Stack Engineer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains my personal portfolio: a showcase of the applications I have built, the technologies I work with, and how I approach full-stack development. I enjoy turning ideas into practical, user-friendly products, working across interfaces, APIs, databases, and AI integrations.
 
-Currently, two official plugins are available:
+The portfolio features selected projects, technical skills, certificates, GitHub activity, and a contact form.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Links
 
-## React Compiler
+- [Resume](public/Timothy_Williams_Full-Stack_Engineer_Resume.pdf)
+- [LinkedIn](https://www.linkedin.com/in/timothy--c--williams/)
+- [GitHub](https://github.com/Timothy-Dev-Man)
+- [Portfolio repository](https://github.com/Timothy-Dev-Man/Official-Portfolio)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Selected Projects
 
-Note: This will impact Vite dev & build performances.
+### QuestFrontier
 
-## Expanding the ESLint configuration
+A mobile goal-tracking app designed to help people stay accountable through progress tracking and personal consequences.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+[View the project on GitHub](https://github.com/Timothy-Dev-Man/Sl_Quest_Tracker)
+
+### FeelClear
+
+A mobile app for connecting with a partner and accessing guided conversational support for everyday emotional and relationship needs. The project includes an integration with Mistral AI.
+
+[View the frontend on GitHub](https://github.com/Timothy-Dev-Man/FeelClear-frontend)
+
+## Technologies
+
+React, JavaScript, Node.js, Express, PostgreSQL, React Native, and Mistral AI.
