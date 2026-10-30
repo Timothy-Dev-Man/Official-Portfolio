@@ -1,5 +1,5 @@
 import left from "../../assets/left.png";
-import right from "../../assets/right.jpg";
+import right from "../../assets/right.png";
 
 import { handleProjectUrl } from "../../helper.js";
 
